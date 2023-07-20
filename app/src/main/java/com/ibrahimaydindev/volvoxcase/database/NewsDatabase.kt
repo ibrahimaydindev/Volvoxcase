@@ -12,11 +12,9 @@ import com.ibrahimaydindev.volvoxcase.model.News
     entities = [News::class],
     version = 1
 )
-
 @TypeConverters(com.ibrahimaydindev.volvoxcase.database.TypeConverters::class)
 abstract class NewsDatabase : RoomDatabase() {
     abstract fun getArticleDao(): NewsDao
-
     companion object {
         @Volatile
         private var instance: NewsDatabase? = null
