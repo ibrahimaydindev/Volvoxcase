@@ -22,10 +22,10 @@ class NewFragment : Fragment(R.layout.fragment_new) {
         val binding = FragmentNewBinding.bind(view)
         newBinding = binding
         viewModel = (activity as MainActivity).viewModel
-        val article = args.news
+        val news = args.news
         binding.webView.apply {
             webViewClient = WebViewClient()
-            loadUrl(article.url)
+            loadUrl(news.url)
         }
     }
 }

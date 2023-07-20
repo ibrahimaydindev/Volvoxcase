@@ -33,7 +33,7 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
         setupRecyclerView()
         newsAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {
-                putSerializable("article", it)
+                putSerializable("news", it)
             }
             findNavController().navigate(
                 R.id.action_newsFragment_to_newFragment,
