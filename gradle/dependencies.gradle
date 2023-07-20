@@ -1,0 +1,40 @@
+ext {
+    versions = [
+            LifecycleVersion       : "2.4.0",
+            retrofitVersion        : "2.6.0",
+            httpVersion            : "4.5.0",
+            roomVersion            : "2.3.0",
+            coroutinesVersion      : "1.6.4",
+            navigationVersion      : "2.2.1",
+            glideVersion           : "4.11.0",
+            constraintLayoutVersion: "2.0.4",
+            materialVersion        : "1.3.0",
+            coreVersion            : "1.3.2",
+            appcompatVersion       : "1.2.0",
+            testVersion            : "1.1.2",
+            espressoVersion        : "3.3.0",
+            toolsVersion           : "7.0.4",
+            pluginVersion          : "1.5.20"
+    ]
+
+    dependencyLib = [
+            appcompat         : "androidx.appcompat:appcompat:$versions.appcompatVersion",
+            retrofit          : "com.squareup.retrofit2:retrofit:$versions.retrofitVersion",
+            converterGson     : "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion",
+            interceptor       : "com.squareup.okhttp3:logging-interceptor:$versions.httpVersion",
+            roomRuntime       : "androidx.room:room-runtime:$versions.roomVersion",
+            roomCompiler      : "androidx.room:room-compiler:$versions.roomVersion",
+            roomKtx           : "androidx.room:room-ktx:$versions.roomVersion",
+            coroutinesCore    : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutinesVersion",
+            coroutinesAndroid : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutinesVersion",
+            navigationFragment: "androidx.navigation:navigation-fragment-ktx:$versions.navigationVersion",
+            navigationUi      : "androidx.navigation:navigation-ui-ktx:$versions.navigationVersion",
+            glide             : "com.github.bumptech.glide:glide:$versions.glideVersion",
+            compiler          : "com.github.bumptech.glide:compiler:$versions.glideVersion",
+            constraintLayout  : "androidx.constraintlayout:constraintlayout:$versions.constraintLayoutVersion",
+            material          : "com.google.android.material:material:$versions.materialVersion",
+            core              : "androidx.core:core-ktx:$versions.coreVersion",
+            junit             : "androidx.test.ext:junit:$versions.testVersion",
+            espresso          : "androidx.test.espresso:espresso-core:$versions.espressoVersion"
+    ]
+}
