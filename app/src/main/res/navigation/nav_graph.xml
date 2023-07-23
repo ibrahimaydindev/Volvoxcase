@@ -13,6 +13,9 @@
         <argument
             android:name="news"
             app:argType="com.ibrahimaydindev.volvoxcase.model.News" />
+        <action
+            android:id="@+id/action_newFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
 
     </fragment>
     <fragment
@@ -22,6 +25,9 @@
         <action
             android:id="@+id/action_newsFragment_to_newFragment"
             app:destination="@id/newFragment" />
+        <action
+            android:id="@+id/action_newsFragment_to_savedFragment"
+            app:destination="@id/savedFragment" />
     </fragment>
     <fragment
         android:id="@+id/savedFragment"

@@ -1,5 +1,7 @@
 package com.ibrahimaydindev.volvoxcase.repository
 
+import androidx.lifecycle.LiveData
+import androidx.room.Query
 import com.ibrahimaydindev.volvoxcase.api.RetrofitInstance
 import com.ibrahimaydindev.volvoxcase.database.NewsDatabase
 import com.ibrahimaydindev.volvoxcase.model.News

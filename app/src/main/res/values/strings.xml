@@ -5,4 +5,6 @@
     <string name="aciklama">Aciklama</string>
     <string name="kaynak">Kaynak</string>
     <string name="baslik">Baslik</string>
+    <string name="ana_sayfa">Ana Sayfa</string>
+    <string name="kaydedilenler">Kaydedilenler</string>
 </resources>

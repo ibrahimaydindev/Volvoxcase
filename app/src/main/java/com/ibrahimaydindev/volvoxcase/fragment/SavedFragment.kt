@@ -29,6 +29,7 @@ class SavedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as MainActivity).viewModel
+        newsAdapter = NewsAdapter()
         setupRecyclerView()
         newsAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {

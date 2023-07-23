@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.ibrahimaydindev.volvoxcase.R
 import com.ibrahimaydindev.volvoxcase.activity.MainActivity
 import com.ibrahimaydindev.volvoxcase.databinding.FragmentNewBinding
@@ -38,11 +40,43 @@ class NewFragment : Fragment(R.layout.fragment_new) {
                 val article = bundle.getSerializable("br") as News
                 newBinding.webView.apply {
                     webViewClient = WebViewClient()
-                    article.url.let { loadUrl(it) }
+                    article.url.let {
+                        loadUrl(it)
+                        binding.floatingActionButton.setOnClickListener {
+                            addArticle(article)
+                            Snackbar.make(view, "Haber İndirildi !", Snackbar.LENGTH_SHORT).show()
+                        }
+                    }
                 }
-            }else {
-                Toast.makeText(requireContext(), "Haber bulunamadı", Toast.LENGTH_SHORT).show()
+            } else if (bundle.getSerializable("saved") != null) {
+                val article = bundle.getSerializable("saved") as News
+                newBinding.webView.apply {
+                    webViewClient = WebViewClient()
+                    article.url.let {
+                        loadUrl(it)
+                        binding.floatingActionButton.setImageResource(android.R.drawable.ic_delete)
+                        binding.floatingActionButton.setOnClickListener {
+                            removeArticle(article)
+                            Snackbar.make(view, "Haber Silindi !", Snackbar.LENGTH_SHORT).show()
+                        }
+                    }
+                }
             }
+        } else {
+            Toast.makeText(requireContext(), "Haber bulunamadı !", Toast.LENGTH_SHORT)
+                .show()
         }
+
+        binding.buttonBack.setOnClickListener {
+            findNavController().navigate(R.id.action_newFragment_to_newsFragment)
+
+        }
+    }
+    private fun removeArticle(article: News) {
+        viewModel.deleteArticle(article)
+    }
+
+    private fun addArticle(article: News) {
+        viewModel.saveArticle(article)
     }
 }

@@ -1,15 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".fragment.NewFragment">
 
-    <WebView
-        android:id="@+id/webView"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </WebView>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</FrameLayout>
+
+        <ImageView
+            android:id="@+id/buttonBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="?attr/homeAsUpIndicator"
+            />
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_marginTop="50dp"
+            android:layout_height="600dp">
+        </WebView>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingActionButton"
+                android:layout_width="50dp"
+                android:layout_marginTop="530dp"
+                android:layout_marginStart="330dp"
+                android:layout_height="50dp"
+                android:src="@android:drawable/ic_menu_save"
+                />
+
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
