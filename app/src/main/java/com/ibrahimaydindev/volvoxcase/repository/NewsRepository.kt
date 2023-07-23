@@ -1,7 +1,5 @@
 package com.ibrahimaydindev.volvoxcase.repository
 
-import androidx.lifecycle.LiveData
-import androidx.room.Query
 import com.ibrahimaydindev.volvoxcase.api.RetrofitInstance
 import com.ibrahimaydindev.volvoxcase.database.NewsDatabase
 import com.ibrahimaydindev.volvoxcase.model.News
@@ -12,6 +10,4 @@ class NewsRepository(val db: NewsDatabase) {
     suspend fun insertArticle (article: News) = db.getArticleDao().insertArticle(article)
     suspend fun deleteArticle (article: News) = db.getArticleDao().deleteArticle(article)
     fun getAllArticles() = db.getArticleDao().getAllArticles()
-
-    fun getSavedNews() = db.getArticleDao().getAllArticles()
 }
