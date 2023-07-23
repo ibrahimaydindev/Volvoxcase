@@ -2,4 +2,7 @@
     <string name="app_name">Volvoxcase</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="aciklama">Aciklama</string>
+    <string name="kaynak">Kaynak</string>
+    <string name="baslik">Baslik</string>
 </resources>

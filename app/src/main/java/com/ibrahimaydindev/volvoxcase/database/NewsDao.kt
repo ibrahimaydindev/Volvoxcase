@@ -12,4 +12,14 @@ import com.ibrahimaydindev.volvoxcase.model.News
 interface NewsDao {
     @Query("SELECT * FROM news")
     fun getAllArticles(): LiveData<List<News>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertArticle(article: News)
+
+    @Delete
+    suspend fun deleteArticle(article: News)
+    @Query("SELECT * FROM news WHERE id = :articleId")
+    suspend fun getArticle(articleId: Int): News
+
+
 }

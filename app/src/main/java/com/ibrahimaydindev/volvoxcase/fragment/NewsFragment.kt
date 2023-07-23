@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
 import androidx.lifecycle.Observer
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,23 +23,36 @@ import com.ibrahimaydindev.volvoxcase.viewmodel.NewsViewModel
 class NewsFragment : Fragment(R.layout.fragment_news) {
     private lateinit var newsFragmentBinding: FragmentNewsBinding
     private lateinit var newsViewModel: NewsViewModel
-    private lateinit var newsAdapter: NewsAdapter
+    lateinit var newsAdapter: NewsAdapter
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentNewsBinding.bind(view)
         newsFragmentBinding = binding
         newsViewModel = (activity as MainActivity).viewModel
+
+        newsAdapter = NewsAdapter()
         setupRecyclerView()
+
         newsAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {
-                putSerializable("news", it)
+                putSerializable("br", it)
             }
             findNavController().navigate(
                 R.id.action_newsFragment_to_newFragment,
                 bundle
             )
         }
-        newsViewModel.getNews.observe(viewLifecycleOwner, Observer { response ->
+
+        newsViewModel.getNews.observe(viewLifecycleOwner,Observer { response ->
             when (response) {
                 is Resource.Success -> {
                     hideProgressBar()
@@ -57,15 +69,22 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
                 is Resource.Error -> {
                     hideProgressBar()
                     response.message?.let { message ->
-                        Log.e(TAG, "An error accrued: $message")
+                        Log.e(TAG, " hata : $message")
                     }
                 }
-
                 is Resource.Loading -> {
                     showProgressBar()
                 }
             }
         })
+    }
+
+    private fun setupRecyclerView() {
+        newsFragmentBinding.rvNews.apply {
+            adapter = newsAdapter
+            layoutManager = LinearLayoutManager(activity)
+            addOnScrollListener(this@NewsFragment.scrollListener)
+        }
     }
 
     private fun hideProgressBar() {
@@ -81,6 +100,7 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
     var isLoading = false
     var isLastPage = false
     var isScrolling = false
+
     private var scrollListener = object : RecyclerView.OnScrollListener() {
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
@@ -106,15 +126,6 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
                 newsViewModel.getNews("tr")
                 isScrolling = false
             }
-        }
-    }
-
-    private fun setupRecyclerView() {
-        newsAdapter = NewsAdapter()
-        newsFragmentBinding.rvNews.apply {
-            adapter = newsAdapter
-            layoutManager = LinearLayoutManager(activity)
-            addOnScrollListener(this@NewsFragment.scrollListener)
         }
     }
 }

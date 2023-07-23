@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#F44336"
     android:orientation="vertical">
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="0dp"
-        android:layout_margin="30dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="300dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -18,24 +18,25 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#C38E8E"
+            android:layout_height="match_parent"
+            android:background="#FF9800"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/newsImage"
                 android:layout_width="200dp"
-                android:layout_height="150dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:layout_margin="32dp" />
+                android:layout_margin="10dp" />
 
             <TextView
                 android:id="@+id/newsTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="18dp"
-                android:text="Baslik"
+                android:textAlignment="center"
+                android:text="@string/baslik"
+                android:maxLines="3"
                 android:textColor="@android:color/black"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -45,9 +46,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_margin="18dp"
-
-                android:text="Aciklama"
+                android:text="@string/aciklama"
+                android:maxLines="2"
+                android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textStyle="bold" />
 
@@ -56,15 +57,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:layout_margin="18dp"
-                android:layout_marginTop="16dp"
-                android:text="Kaynak"
+                android:layout_margin="10dp"
+                android:text="@string/kaynak"
                 android:textColor="@android:color/black"
                 android:textStyle="bold" />
-
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,4 +23,13 @@
             android:id="@+id/action_newsFragment_to_newFragment"
             app:destination="@id/newFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.ibrahimaydindev.volvoxcase.fragment.SavedFragment"
+        android:label="fragment_saved"
+        tools:layout="@layout/fragment_saved" >
+        <action
+            android:id="@+id/action_savedFragment_to_newFragment"
+            app:destination="@id/newFragment" />
+    </fragment>
 </navigation>

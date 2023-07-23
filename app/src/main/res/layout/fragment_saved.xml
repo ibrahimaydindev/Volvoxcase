@@ -3,13 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".fragment.NewFragment">
+    tools:context=".fragment.SavedFragment">
 
-    <WebView
-        android:id="@+id/webView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/savedNewsRv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </WebView>
-
+        android:layout_height="match_parent" />
 </FrameLayout>
